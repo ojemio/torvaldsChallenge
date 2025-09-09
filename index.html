@@ -1,79 +1,64 @@
 <!doctype html>
 <div class="row">
-<label>Full Name*<input type="text" id="fullName" required></label>
-<label>Company / Organization<input type="text" id="company"></label>
-</div>
-<div class="row">
-<label>Role / Title<input type="text" id="title"></label>
-<label>Phone*<input type="tel" id="phone" required></label>
-</div>
-<div class="row">
-<label>Email<input type="email" id="email"></label>
-<label>Logo (optional)<input type="file" id="logoInput" accept="image/*"></label>
+<label>Logo / Photo (optional)</label>
+<input id="logoInput" type="file" accept="image/*" />
 </div>
 
 
 <div class="row">
-<label>Design template
-<select id="template">
+<label>Design Template</label>
+<select id="templateSelect">
 <option value="clean">Clean (default)</option>
-<option value="accent">Accent</option>
-<option value="dark">Dark</option>
+<option value="dark">Dark Minimal</option>
 </select>
-</label>
 </div>
 
 
-<div class="controls">
+<div class="buttons">
 <button type="button" id="generateBtn">Generate Card</button>
-<button type="button" id="downloadPdfBtn" disabled>Download PDF</button>
+<button type="button" id="downloadPDFBtn">Download as PDF</button>
+<button type="button" id="downloadVCardBtn">Download vCard (.vcf)</button>
 <button type="button" id="saveLocalBtn">Save Locally</button>
-<button type="button" id="loadLocalBtn">Load Saved</button>
+<button type="reset">Reset</button>
 </div>
 </form>
 
 
-<small class="hint">* Required fields. QR encodes a vCard (.vcf) and is scannable by Android/iOS cameras.</small>
-</section>
-
-
-<section class="card-preview-section">
-<div id="cardPreviewWrap">
+<section class="preview-area">
+<h2>Preview</h2>
+<div id="cardWrapper">
+<!-- Card will be injected here -->
 <div id="businessCard" class="card clean">
-<div class="left">
-<div class="logo" id="logoPlaceholder">Logo</div>
+<div class="card-left">
+<div id="logoHolder" class="logo-holder"></div>
 <div class="info">
-<h2 id="pvName">Full Name</h2>
-<p id="pvTitle">Title</p>
-<p id="pvCompany">Company</p>
+<div id="pName" class="name">Full Name</div>
+<div id="pRole" class="role">Role / Title</div>
+<div id="pCompany" class="company">Company</div>
 </div>
 </div>
-<div class="right">
+<div class="card-right">
 <div id="qrcode"></div>
-<p id="pvPhone">Phone</p>
-<p id="pvEmail">Email</p>
+<div class="contact">
+<div id="pPhone">Phone</div>
+<div id="pEmail">Email</div>
 </div>
 </div>
 </div>
-</section>
+</div>
 
 
-<section class="saved-list">
-<h3>Saved cards (local)</h3>
-<ul id="savedCards"></ul>
+<div class="saved-list">
+<h3>Saved Cards (local)</h3>
+<ul id="savedCardsList"></ul>
+</div>
 </section>
 
 
 <footer>
-<p>Built with pure HTML/CSS/JS. Uses client-side libraries via CDN for QR + PDF export.</p>
+<small>Built with pure HTML/CSS/JS — client-side only.</small>
 </footer>
-</main>
-
-
-<!-- Libraries (CDN) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</div>
 
 
 <script src="script.js"></script>
