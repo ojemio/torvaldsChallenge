@@ -1,66 +1,102 @@
-<!doctype html>
-<div class="row">
-<label>Logo / Photo (optional)</label>
-<input id="logoInput" type="file" accept="image/*" />
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Business Card Generator</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <h1>Digital Business Card Generator</h1>
 
-<div class="row">
-<label>Design Template</label>
-<select id="templateSelect">
-<option value="clean">Clean (default)</option>
-<option value="dark">Dark Minimal</option>
-</select>
-</div>
+  <form id="cardForm">
+    <div class="row">
+      <label for="fullName">Full Name *</label>
+      <input type="text" id="fullName" required>
+    </div>
 
+    <div class="row">
+      <label for="company">Company / Organization</label>
+      <input type="text" id="company">
+    </div>
 
-<div class="buttons">
-<button type="button" id="generateBtn">Generate Card</button>
-<button type="button" id="downloadPDFBtn">Download as PDF</button>
-<button type="button" id="downloadVCardBtn">Download vCard (.vcf)</button>
-<button type="button" id="saveLocalBtn">Save Locally</button>
-<button type="reset">Reset</button>
-</div>
-</form>
+    <div class="row">
+      <label for="role">Role / Title</label>
+      <input type="text" id="role">
+    </div>
 
+    <div class="row">
+      <label for="phone">Phone *</label>
+      <input type="text" id="phone" required>
+    </div>
 
-<section class="preview-area">
-<h2>Preview</h2>
-<div id="cardWrapper">
-<!-- Card will be injected here -->
-<div id="businessCard" class="card clean">
-<div class="card-left">
-<div id="logoHolder" class="logo-holder"></div>
-<div class="info">
-<div id="pName" class="name">Full Name</div>
-<div id="pRole" class="role">Role / Title</div>
-<div id="pCompany" class="company">Company</div>
-</div>
-</div>
-<div class="card-right">
-<div id="qrcode"></div>
-<div class="contact">
-<div id="pPhone">Phone</div>
-<div id="pEmail">Email</div>
-</div>
-</div>
-</div>
-</div>
+    <div class="row">
+      <label for="email">Email</label>
+      <input type="email" id="email">
+    </div>
 
+    <div class="row">
+      <label>Logo / Photo (optional)</label>
+      <input id="logoInput" type="file" accept="image/*" />
+    </div>
 
-<div class="saved-list">
-<h3>Saved Cards (local)</h3>
-<ul id="savedCardsList"></ul>
-</div>
-</section>
+    <div class="row">
+      <label>Design Template</label>
+      <select id="templateSelect">
+        <option value="clean">Clean (default)</option>
+        <option value="dark">Dark Minimal</option>
+      </select>
+    </div>
 
+    <div class="buttons">
+      <button type="button" id="generateBtn">Generate Card</button>
+      <button type="button" id="downloadPDFBtn">Download as PDF</button>
+      <button type="button" id="downloadVCardBtn">Download vCard (.vcf)</button>
+      <button type="button" id="saveLocalBtn">Save Locally</button>
+      <button type="reset">Reset</button>
+    </div>
+  </form>
 
-<footer>
-<small>Built with pure HTML/CSS/JS — client-side only.</small>
-</footer>
-</div>
+  <section class="preview-area">
+    <h2>Preview</h2>
+    <div id="cardWrapper">
+      <div id="businessCard" class="card clean">
+        <div class="card-left">
+          <div id="logoHolder" class="logo-holder"></div>
+          <div class="info">
+            <div id="pName" class="name">Full Name</div>
+            <div id="pRole" class="role">Role / Title</div>
+            <div id="pCompany" class="company">Company</div>
+          </div>
+        </div>
+        <div class="card-right">
+          <div id="qrcode"></div>
+          <div class="contact">
+            <div id="pPhone">Phone</div>
+            <div id="pEmail">Email</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="saved-list">
+      <h3>Saved Cards (local)</h3>
+      <ul id="savedCardsList"></ul>
+    </div>
+  </section>
 
-<script src="script.js"></script>
+  <footer>
+    <small>Built with pure HTML/CSS/JS — client-side only.</small>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js" defer></script>
 </body>
 </html>
