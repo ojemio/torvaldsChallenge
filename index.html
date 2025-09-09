@@ -1,0 +1,81 @@
+<!doctype html>
+<div class="row">
+<label>Full Name*<input type="text" id="fullName" required></label>
+<label>Company / Organization<input type="text" id="company"></label>
+</div>
+<div class="row">
+<label>Role / Title<input type="text" id="title"></label>
+<label>Phone*<input type="tel" id="phone" required></label>
+</div>
+<div class="row">
+<label>Email<input type="email" id="email"></label>
+<label>Logo (optional)<input type="file" id="logoInput" accept="image/*"></label>
+</div>
+
+
+<div class="row">
+<label>Design template
+<select id="template">
+<option value="clean">Clean (default)</option>
+<option value="accent">Accent</option>
+<option value="dark">Dark</option>
+</select>
+</label>
+</div>
+
+
+<div class="controls">
+<button type="button" id="generateBtn">Generate Card</button>
+<button type="button" id="downloadPdfBtn" disabled>Download PDF</button>
+<button type="button" id="saveLocalBtn">Save Locally</button>
+<button type="button" id="loadLocalBtn">Load Saved</button>
+</div>
+</form>
+
+
+<small class="hint">* Required fields. QR encodes a vCard (.vcf) and is scannable by Android/iOS cameras.</small>
+</section>
+
+
+<section class="card-preview-section">
+<div id="cardPreviewWrap">
+<div id="businessCard" class="card clean">
+<div class="left">
+<div class="logo" id="logoPlaceholder">Logo</div>
+<div class="info">
+<h2 id="pvName">Full Name</h2>
+<p id="pvTitle">Title</p>
+<p id="pvCompany">Company</p>
+</div>
+</div>
+<div class="right">
+<div id="qrcode"></div>
+<p id="pvPhone">Phone</p>
+<p id="pvEmail">Email</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="saved-list">
+<h3>Saved cards (local)</h3>
+<ul id="savedCards"></ul>
+</section>
+
+
+<footer>
+<p>Built with pure HTML/CSS/JS. Uses client-side libraries via CDN for QR + PDF export.</p>
+</footer>
+</main>
+
+
+<!-- Libraries (CDN) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+<script src="script.js"></script>
+</body>
+</html>
